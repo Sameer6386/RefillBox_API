@@ -1,7 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./database/db");
-const adminRoutes = require("./routes/adminRoutes");
+const adminRoutes = require("./Routes/adminRoutes");
+const jobRoutes = require("./Routes/jobRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/admin", adminRoutes);
+app.use("/api/jobs", jobRoutes);
 
 // Handle invalid routes
 app.use((req, res, next) => {
